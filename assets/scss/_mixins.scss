@@ -1,0 +1,96 @@
+@use './variables' as *;
+
+@use "sass:math"; // встроенный модуль math
+
+// Media queries с фиксированными значениями
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 576px) { @content; }
+  }
+  @if $breakpoint == md {
+    @media (min-width: 768px) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 992px) { @content; }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Typography
+@mixin font-regular {
+  font-family: $font-primary;
+  font-weight: 400;
+}
+
+@mixin font-medium {
+  font-family: $font-primary;
+  font-weight: 500;
+}
+
+@mixin font-bold {
+  font-family: $font-primary;
+  font-weight: 700;
+}
+
+// Container mixin
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $grid-gutter;
+}
+
+// Row mixin
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$grid-gutter * 0.5};
+}
+
+// Column mixin
+@mixin col($size) {
+  $width: math.percentage(math.div($size, $grid-columns));
+  flex: 0 0 $width;
+  max-width: $width;
+  padding: 0 $grid-gutter * 0.5;
+  box-sizing: border-box;
+}
+
+// Responsive columns
+@mixin col-sm($size) {
+  @media (min-width: $breakpoint-sm) {
+    @include col($size);
+  }
+}
+
+@mixin col-md($size) {
+  @media (min-width: $breakpoint-md) {
+    @include col($size);
+  }
+}
+
+@mixin col-lg($size) {
+  @media (min-width: $breakpoint-lg) {
+    @include col($size);
+  }
+}
+
+@mixin col-xl($size) {
+  @media (min-width: $breakpoint-xl) {
+    @include col($size);
+  }
+}

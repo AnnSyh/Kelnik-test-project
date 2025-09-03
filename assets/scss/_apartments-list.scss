@@ -1,0 +1,134 @@
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.apartments {
+
+    &-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    &-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1a1a1a;
+    }
+    
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+}
+
+.apartment-item {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+
+.load-more {
+    
+    &-btn {
+      font-family: $font-primary;
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      border: 1px solid $text-color;
+      cursor: pointer;
+      background: transparent;
+    
+      &:hover:not(:disabled) {
+        color: #fff;
+        background: $secondary-color;
+        border-color: $secondary-color;
+        transform: translateY(-2px);
+      }
+    
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    
+      svg {
+        transition: transform 0.3s ease;
+      }
+    
+      &:hover:not(:disabled) svg {
+        transform: translateY(2px);
+      }
+    }
+}
+
+.loading {
+    & {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      color: #666;
+    }
+    
+    &-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid $secondary-color;;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.all-loaded,
+.no-apartments {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .apartments-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .apartments-title {
+    font-size: 1.5rem;
+  }
+
+  .load-more-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

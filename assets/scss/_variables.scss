@@ -1,0 +1,28 @@
+// Colors
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$background-color: #f8f9fa;
+
+// Fonts
+$font-primary: 'PT Root UI', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 960px;
+$breakpoint-xl: 1440px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Grid variables
+$grid-columns: 12;
+$grid-gutter: 20px;
+$container-max-width: 1440px;

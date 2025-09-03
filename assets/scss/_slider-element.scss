@@ -1,0 +1,15 @@
+// кнопка вверх
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Кастомные стили для слайдера
+.vueform-slider {
+  margin: 8px 0;
+
+
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

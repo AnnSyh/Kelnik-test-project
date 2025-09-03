@@ -1,0 +1,119 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.flex-1 {
+  flex: 1;
+}
+.flex {
+    display:  flex;
+}
+
+.filter {
+    background: linear-gradient(135deg, rgba(174, 228, 178, 0.3) 0%, rgba(149, 208, 161, 0.3) 100%);
+    max-width: 399px;
+    gap: 24px;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+
+    &__list {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__room {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        background-color: #fff;
+        color: #0B1739;
+        border-radius: 100%;
+        cursor: pointer;
+
+        &_active {
+            background-color: #3EB57C;
+            box-shadow: 0px 6px 20px 0px #95D0A1;
+
+             .filter__room-link {  color: #fff;}
+        }
+
+        &_disabled {
+            .filter__room-link {  color: #CED1D7;}
+        }
+
+        &-link {
+            text-decoration: none;
+            margin: auto;
+            color: #0B1739;
+
+        }
+    }
+
+    &__green-block {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+.flat-price {
+    font-size: 14px;
+}
+.flat-area {
+     font-size: 14px;
+}
+
+.btn {
+    width: fit-content;
+    padding: 1rem;
+
+    &-icon {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        background-color: transparent;
+    }
+}
+
+
+// --------------------
+.table-head {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.tcol {
+  /* Общие стили для всех колонок */
+  text-align: center;
+}
+
+.tcol-1 {
+    order: 1;
+
+    @media (min-width: $breakpoint-md) {
+         order: 0;
+    }
+}
+
+// -------------------
+.card {
+  border-top: 1px solid #ccc;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
