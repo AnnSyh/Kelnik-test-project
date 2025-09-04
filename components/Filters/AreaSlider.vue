@@ -7,11 +7,11 @@
     :merge="merge"
     :format="formatOptions"
     :tooltips="tooltips"
-    :connect="connect"
     :range="rangeOptions"
     :class="sliderClasses"
     @update="handleUpdate"
     />
+    <!-- :connect="connect" -->
 </template>
 
 <script setup lang="ts">

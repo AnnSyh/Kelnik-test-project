@@ -8,11 +8,11 @@
       :merge="merge"
       :format="formatOptions"
       :tooltips="tooltips"
-      :connect="connect"
       :range="rangeOptions"
       :class="sliderClasses"
       @update="handleUpdate"
-    />
+      />
+      <!-- :connect="connect" -->
   </div>
 </template>
 
