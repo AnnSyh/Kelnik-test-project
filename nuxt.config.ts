@@ -1,18 +1,29 @@
 export default defineNuxtConfig({
-  app: { // решение вопроса: в элементе <head> отсутствует обязательный тег <title>
+  app: {
     head: {
       title: 'Kelnik-test',
-      titleTemplate: '%s | Flats', // Опционально: шаблон для title
+      titleTemplate: '%s | Flats',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-       link: [] // Отключаем все resource hints
+      link: []
     }
   },
 
-  features: {
-    preload: false,
-    prefetch: false
+  // Добавьте эти настройки
+  experimental: {
+    payloadExtraction: false // Отключает автоматическое извлечение payload
   },
+  
+  // Отключаем resource hints
+  render: {
+    resourceHints: false // Полностью отключает prefetch/preload подсказки
+  },
+
+  // Уберите или закомментируйте features, так как они не работают как ожидается
+  // features: {
+  //   preload: false,
+  //   prefetch: false
+  // },
 
   css: [
     '@vueform/slider/themes/default.css',
@@ -20,13 +31,10 @@ export default defineNuxtConfig({
     '@/assets/css/fonts.css',
   ],
 
-    // Дополнительная конфигурация для Vite
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          // Здесь можно указать дополнительные переменные и миксины,
-          // которые будут доступны во всех Vue-компонентах без явного импорта
           additionalData: `
             @use "@/assets/scss/variables" as *;
             @use "@/assets/scss/mixins" as *;
