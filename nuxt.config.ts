@@ -5,19 +5,15 @@ export default defineNuxtConfig({
       titleTemplate: '%s | Flats', // Опционально: шаблон для title
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+       link: [] // Отключаем все resource hints
     }
   },
-    // Отключаем автоматический prefetch для всех скриптов
-  experimental: {
-    payloadExtraction: false
+
+  features: {
+    preload: false,
+    prefetch: false
   },
-  
-  // Альтернативный вариант - модифицировать заголовки
-//   app: {
-//     head: {
-//       link: []
-//     }
-//   }
+
   css: [
     '@vueform/slider/themes/default.css',
     '@/assets/scss/main.scss',
@@ -60,7 +56,8 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['./stores']
   },
-    build: {
+
+  build: {
     transpile: ['@vueform/slider']
   }
 })
