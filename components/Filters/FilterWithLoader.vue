@@ -1,11 +1,8 @@
 <template>
-  <div class="filter-wrapper">
-    <div v-if="loading" class="filter-wrapper__loader">
+    <div v-if="loading">
       <div class="spinner"></div>
       <span>Применяем фильтры...</span>
     </div>
-    
-  </div>
 </template>
 
 <script setup lang="ts">

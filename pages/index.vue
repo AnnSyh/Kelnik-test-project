@@ -7,7 +7,7 @@
             <div class="page-header">
                 <h1>Квартиры</h1>
                 <span>Найдено: {{ filteredApartments.length }} из {{ store.apartments.length }}</span>
-                <span><FilterWithLoader /></span> 
+                <FilterWithLoader />
             </div>
             
             

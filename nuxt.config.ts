@@ -5,7 +5,8 @@ export default defineNuxtConfig({
       titleTemplate: '%s | Flats',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      link: []
+      link: [],
+      lang: 'ru' 
     }
   },
   
