@@ -76,7 +76,7 @@
     "title": "4-комнатная квартира",
     "price": 8900000,
     "area": 120,
-    "rooms": 3,
+    "rooms": 4,
     "floor":" 8 из 17" ,
     "image": "/images/flat_furniture.png"
   },
@@ -85,7 +85,7 @@
     "title": "4-комнатная квартира",
     "price": 9500000,
     "area": 125,
-    "rooms": 3,
+    "rooms": 4,
     "floor": "18 из 17" ,
     "image": "/images/flat_furniture.png"
   },
@@ -94,7 +94,7 @@
     "title": "4-комнатная квартира",
     "price": 8200000,
     "area": 110,
-    "rooms": 3,
+    "rooms": 4,
     "floor":" 2 из 17" ,
     "image": "/images/flat_furniture.png"
   },
@@ -130,7 +130,7 @@
     "title": "5-комнатная квартира",
     "price": 12000000,
     "area": 150,
-    "rooms": 3,
+    "rooms": 5,
     "floor": "10 из 17" ,
     "image": "/images/flat_furniture.png"
   }

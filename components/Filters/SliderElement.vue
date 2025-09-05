@@ -1,6 +1,7 @@
 <template>
   <div class="price-slider">
     <Slider
+      class="area-slider__element slider-target slider-ltr slider-horizontal slider-txt-dir-ltr"
       v-model="internalValue"
       :min="min"
       :max="max"

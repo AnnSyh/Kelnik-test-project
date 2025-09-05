@@ -5,16 +5,16 @@
 // Media queries с фиксированными значениями
 @mixin respond-to($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: 576px) { @content; }
+    @media (min-width: $breakpoint-sm) { @content; }
   }
   @if $breakpoint == md {
-    @media (min-width: 768px) { @content; }
+    @media (min-width: $breakpoint-md) { @content; }
   }
   @if $breakpoint == lg {
-    @media (min-width: 992px) { @content; }
+    @media (min-width: $breakpoint-lg) { @content; }
   }
   @if $breakpoint == xl {
-    @media (min-width: 1200px) { @content; }
+    @media (min-width: $breakpoint-xl) { @content; }
   }
 }
 

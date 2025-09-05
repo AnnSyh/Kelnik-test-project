@@ -38,6 +38,7 @@
         color: #0B1739;
         border-radius: 100%;
         cursor: pointer;
+        border: none;
 
         &:hover:not(&_disabled) {
             background-color: $filter-bg-color;

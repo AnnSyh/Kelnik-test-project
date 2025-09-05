@@ -49,19 +49,6 @@ h1 {
     font-size: 54px;
 }
 
-// Утилитные классы
-.container {
-  max-width: 1440px;
-//   max-width: calc(1440px - 2*$spacing-md);
-  margin: 0 auto;
-  padding: 0 !important;
-//   padding: 0 $spacing-md;
-  
-  @include respond-to(md) {
-    padding: 0 $spacing-lg;
-  }
-}
-
 .btn {
   padding: $spacing-sm $spacing-md;
   border: none;
@@ -88,58 +75,36 @@ h1 {
   }
 }
 
-// Grid система
-.grid {
-  display: grid;
-  gap: $spacing-md;
-  
-  &--2 {
-    grid-template-columns: 1fr;
-    
-    @include respond-to(md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  &--3 {
-    grid-template-columns: 1fr;
-    
-    @include respond-to(md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include respond-to(lg) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-}
+.row {
+  display: flex;
+  flex-wrap: wrap;
 
-.col {
-    &-filters {
-        order: 0; 
-        
-        .filter {
+
+  .col-filters {
+    
+    .filter {
+        max-width: 100%;
+        margin: 0 auto 1rem 10px;
+
+        @include respond-to(md) {
             max-width: 80%;
-            margin-right: auto;
-            margin-left: 10px;
-            margin-bottom: 1rem;
         }
-    }
-    &-content {
-        order: 1;
-    }
 
-    @include respond-to(lg) {
-        &-filters {
-          order: 1;  
-        }
-        &-content {
-            order: 0;
+        @include respond-to(lg) {
+            margin-left: auto;
+            margin-right: 10px;
+            max-width: 399px;
         }
     }
-
 }
 
+  @include respond-to(lg) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+
+}
 
 .page-header {
     display: flex;
