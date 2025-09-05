@@ -4,7 +4,7 @@ export interface Apartment {
   price: number
   area: number
   rooms: number
-  floor: number
+  floor: string
   image: string
 }
 

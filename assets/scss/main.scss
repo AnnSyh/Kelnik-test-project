@@ -114,3 +114,44 @@ h1 {
   }
 }
 
+.col {
+    &-filters {
+        order: 0; 
+        
+        .filter {
+            max-width: 80%;
+            margin-right: auto;
+            margin-left: 10px;
+            margin-bottom: 1rem;
+        }
+    }
+    &-content {
+        order: 1;
+    }
+
+    @include respond-to(lg) {
+        &-filters {
+          order: 1;  
+        }
+        &-content {
+            order: 0;
+        }
+    }
+
+}
+
+
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+    margin:0 10px;
+}
+
+.text-hidden-lg {
+    display: none;
+     @include respond-to(lg) {
+        display: block;
+     }
+}

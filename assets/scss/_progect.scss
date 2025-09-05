@@ -21,6 +21,7 @@
     &__list {
         list-style: none;
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         padding: 0;
         margin: 0;
@@ -38,15 +39,33 @@
         border-radius: 100%;
         cursor: pointer;
 
+        &:hover:not(&_disabled) {
+            background-color: $filter-bg-color;
+            box-shadow: 0px 6px 20px 0px $filter-shadow-color;
+
+            .filter__room-link {
+                color: #fff;
+            }
+        }
+
         &_active {
-            background-color: #3EB57C;
-            box-shadow: 0px 6px 20px 0px #95D0A1;
+            background-color: $filter-bg-color;
+            box-shadow: 0px 6px 20px 0px $filter-shadow-color;
 
              .filter__room-link {  color: #fff;}
         }
 
         &_disabled {
             .filter__room-link {  color: #CED1D7;}
+
+            &:hover {
+                background-color: #fff; 
+                box-shadow: none;
+                
+                .filter__room-link {
+                    color: #CED1D7;
+                }
+            }
         }
 
         &-link {
@@ -91,6 +110,7 @@
   gap: 1rem;
   width: 100%;
   justify-content: space-between;
+  margin:0 10px;
 }
 
 .tcol {
@@ -101,10 +121,43 @@
 .tcol-1 {
     order: 1;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
          order: 0;
     }
 }
+.tcol-2 {
+     display: none;
+
+    @media (min-width: $breakpoint-lg) {
+         display: block;
+    }
+}
+
+.apartment-item__col-1 {
+    order: 1;
+
+    @media (min-width: $breakpoint-lg) {
+         order: 0;
+    }
+}
+.apartment-item__col-2 {
+        display: none;
+
+    @media (min-width: $breakpoint-lg) {
+         display: block;
+    }
+}
+
+.apartment-item__col-1,
+.apartment-item__col-2,
+.apartment-item__col-3,
+.apartment-item__col-4,
+.apartment-item__col-5 {
+    text-align: center;
+    max-width: 140px;
+}
+
+
 
 // -------------------
 .card {

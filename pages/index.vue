@@ -1,14 +1,14 @@
 <template>
     <div class="row">
-        <div class="col col-12 col-md-8">
-            <h1>Квартиры</h1>
-            <!-- Статистика -->
-            <div class="">
-            Найдено: {{ filteredApartments.length }} из {{ store.apartments.length }}
+        <div class="col col-12 col-lg-8 col-content">
+            <div class="page-header">
+                <h1>Квартиры</h1>
+                <span>Найдено: {{ filteredApartments.length }} из {{ store.apartments.length }}</span>
+            
             </div>
             <!-- --------------- -->
             <div class="table-head">
-                <div class="tcol tcol-1">Планировка</div>
+                <div class="tcol tcol-1"><span class="text-hidden-lg">Планировка</span></div>
                 <div class="tcol tcol-2">Квартира</div>
                 <div class="tcol tcol-3">S, м²</div>
                 <div class="tcol tcol-4">Этаж</div>
@@ -27,7 +27,7 @@
             </div>
              <ScrollToTop />
         </div>
-        <div class="col col-12 col-md-4">
+        <div class="col col-12 col-lg-4 col-filters">
             <!-- Фильтры -->
             <div class="filter">
                 <RoomFilter 
@@ -162,7 +162,6 @@ const resetFilters = () => {
   store.filters = {
     price: { min: null, max: null },
     area: { min: null, max: null },
-    floor: { min: null, max: null },
     rooms: null
   }
 }

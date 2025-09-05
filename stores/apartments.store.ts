@@ -6,7 +6,7 @@ id: number
   price: number
   area: number
   rooms: number
-  floor: number
+  floor: string
   image: string
 }
 
@@ -19,7 +19,6 @@ export const useApartmentsStore = defineStore('apartments', {
     filters: {
       price: { min: null as number | null, max: null as number | null },
       area: { min: null as number | null, max: null as number | null },
-      floor: { min: null as number | null, max: null as number | null },
       rooms: null as number | null
     },
   }),

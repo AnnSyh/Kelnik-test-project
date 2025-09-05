@@ -8,22 +8,14 @@ export default defineNuxtConfig({
       link: []
     }
   },
-
-  // Добавьте эти настройки
+  
   experimental: {
     payloadExtraction: false // Отключает автоматическое извлечение payload
   },
   
-  // Отключаем resource hints
   render: {
     resourceHints: false // Полностью отключает prefetch/preload подсказки
   },
-
-  // Уберите или закомментируйте features, так как они не работают как ожидается
-  // features: {
-  //   preload: false,
-  //   prefetch: false
-  // },
 
   css: [
     '@vueform/slider/themes/default.css',

@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <p><img :src="apartment.image" alt=""></p>
-    <h3>{{ apartment.title }}</h3>
-    <p>{{ apartment.area }}</p>
-    <p>{{ apartment.floor }}</p>
-    <p>{{ formatPrice(apartment.price) }}</p>
+    <div class="apartment-item__col-1"><img :src="apartment.image" alt=""></div>
+    <h3 class="apartment-item__col-2">{{ apartment.title }}</h3>
+    <p class="apartment-item__col-3">{{ apartment.area }}</p>
+    <p class="apartment-item__col-4">{{ apartment.floor }}</p>
+    <p class="apartment-item__col-5">{{ formatPrice(apartment.price) }}</p>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ interface Apartment {
   price: number
   area: number
   rooms: number
-  floor: number
+  floor: string
   image: string
 }
 
