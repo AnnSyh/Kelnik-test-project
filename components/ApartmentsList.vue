@@ -45,7 +45,6 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import ApartmentCard from './ApartmentCard.vue'
 
 const props = defineProps<{
   apartments: any[]  // Принимаем отфильтрованные квартиры

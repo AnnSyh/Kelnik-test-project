@@ -9,25 +9,21 @@
 </template>
 
 <script setup lang="ts">
-interface Apartment {
-  id: number
-  title: string
-  price: number
-  area: number
-  rooms: number
-  floor: string
-  image: string
-}
+    interface Apartment {
+    id: number
+    title: string
+    price: number
+    area: number
+    rooms: number
+    floor: string
+    image: string
+    }
 
-const props = defineProps<{
-  apartment: Apartment
-}>()
+    const props = defineProps<{
+    apartment: Apartment
+    }>()
 
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('ru-RU').format(price)
-}
+    const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('ru-RU').format(price)
+    }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -9,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useApartmentsStore } from '@/stores/apartments.store'
 
 const store = useApartmentsStore()

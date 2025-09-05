@@ -59,5 +59,11 @@ export default defineNuxtConfig({
 
   build: {
     transpile: ['@vueform/slider']
-  }
+  },
+    components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ]
 })

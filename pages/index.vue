@@ -7,7 +7,7 @@
             <div class="page-header">
                 <h1>Квартиры</h1>
                 <span>Найдено: {{ filteredApartments.length }} из {{ store.apartments.length }}</span>
-                <span><FilterWithLoader /></span> <!-- Блок загрузки фильтра -->
+                <span><FilterWithLoader /></span> 
             </div>
             
             
@@ -37,11 +37,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { useApartmentsStore } from '../stores/apartments.store'
-import ScrollToTop from '@/components/ScrollToTop.vue'
-import ApartmentsList from '@/components/ApartmentsList.vue'
-import AppFilter from '~/components/Filters/AppFilter.vue'
-import FilterWithLoader from '@/components/Filters/FilterWithLoader.vue'
+import { useApartmentsStore, type Apartment  } from '../stores/apartments.store'
 
 const store = useApartmentsStore()
 
@@ -53,7 +49,7 @@ onMounted(() => {
 const filteredApartments = computed(() => {
   if (!store.apartments.length) return []
 
-  return store.apartments.filter(apartment => {
+  return store.apartments.filter ((apartment: Apartment) => {
     const { price, area, rooms } = store.filters
 
     // Фильтр по цене

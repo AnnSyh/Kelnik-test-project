@@ -1,25 +1,22 @@
 <template>
-  <div class="price-slider">
     <Slider
-      class="area-slider__element slider-target slider-ltr slider-horizontal slider-txt-dir-ltr"
-      v-model="internalValue"
-      :min="min"
-      :max="max"
-      :step="step"
-      :merge="merge"
-      :format="formatOptions"
-      :tooltips="tooltips"
-      :range="rangeOptions"
-      :class="sliderClasses"
-      @update="handleUpdate"
-      />
-      <!-- :connect="connect" -->
-  </div>
+    v-model="internalValue"
+    :min="min"
+    :max="max"
+    :step="step"
+    :merge="merge"
+    :format="formatOptions"
+    :tooltips="tooltips"
+    :range="rangeOptions"
+    :class="sliderClasses"
+    @update="handleUpdate"
+    />
 </template>
 
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
 import Slider from '@vueform/slider'
+
 
 interface Props {
   modelValue?: [number, number]
@@ -31,20 +28,18 @@ interface Props {
   tooltips?: boolean
   connect?: boolean
   showValues?: boolean
-  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: undefined,
   min: 0,
-  max: 20000000,
-  step: 1000000,
-  merge: 25,
-  default: () => [0, 18900000],
+  max: 200,
+  step: 1,
+  merge: 10,
+  default: () => [3, 100] as [number, number],
   tooltips: true,
   connect: true,
-  showValues: true,
-  disabled: false
+  showValues: true
 })
 
 const emit = defineEmits<{
@@ -56,8 +51,7 @@ const internalValue = ref<[number, number]>(props.modelValue || props.default)
 
 const formatOptions = computed(() => ({
   decimals: 0,
-  thousand: ' ',
-  suffix: ' ₽'
+  suffix: ' м²'
 }))
 
 const rangeOptions = computed(() => ({
@@ -66,15 +60,8 @@ const rangeOptions = computed(() => ({
 }))
 
 const sliderClasses = computed(() => [
-  'vueform-slider',
-  {
-    'vueform-slider--disabled': props.disabled
-  }
+  'area-slider__element'
 ])
-
-const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat('ru-RU').format(price)
-}
 
 const handleUpdate = (values: [number, number]) => {
   emit('update:modelValue', values)

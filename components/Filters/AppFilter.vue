@@ -21,21 +21,21 @@
     <!-- Фильтр цены -->
     <div class="filter__green-block">
       <div class="flat-price">Стоимость квартиры, ₽</div>
-      <SliderElement
-        :model-value="priceRange"
-        :min="0"
-        :max="20000000"
-        :step="1000000"
-        :merge="25"
-        :disabled="isBlocked"
-        @update:modelValue="handlePriceChange"
-      />
+        <ElementSlider
+            :model-value="priceRange"
+            :min="0"
+            :max="20000000"
+            :step="1000000"
+            :merge="25"
+            :disabled="isBlocked"
+            @update:modelValue="handlePriceChange"
+        />
     </div>
     
     <!-- Фильтр площади -->
     <div class="filter__green-block">
       <div class="flat-price">Площадь, м²</div>
-      <AreaSlider
+      <ElementSlider
         :model-value="areaRange"
         :min="0"
         :max="200"
@@ -63,17 +63,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useApartmentsStore } from '@/stores/apartments.store'
-import SliderElement from '@/components/Filters/SliderElement.vue'
-import AreaSlider from '@/components/Filters/AreaSlider.vue'
+import { useApartmentsStore, type Apartment } from '@/stores/apartments.store'
+// import ElementSlider from '@/components/Filters/ElementSlider.vue'
+import ElementSlider  from '@/components/Filters/ElementSlider.vue'
 
 const store = useApartmentsStore()
 
-// Состояние блокировки и загрузки
+const sliderValue = ref<[number, number]>([30, 100])
+
 const isBlocked = computed(() => store.isBlocked)
 const filterLoading = computed(() => store.filterLoading)
 
-// Вычисляемые значения для слайдеров
 const priceRange = computed(() => [
   store.filters.price.min ?? 1000000,
   store.filters.price.max ?? 10000000
@@ -84,11 +84,10 @@ const areaRange = computed(() => [
   store.filters.area.max ?? 100
 ])
 
-// Доступные варианты комнат
 const availableRooms = computed(() => {
   const rooms = new Set<number>()
   
-  store.apartments.forEach(apartment => {
+  store.apartments.forEach((apartment: Apartment) => {
     if (apartment.rooms) {
       rooms.add(apartment.rooms)
     }
@@ -97,7 +96,6 @@ const availableRooms = computed(() => {
   return Array.from(rooms).sort()
 })
 
-// Обработчики изменений
 const handlePriceChange = (range: [number, number]) => {
   if (isBlocked.value) return
   store.setPriceFilter({
