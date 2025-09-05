@@ -1,21 +1,31 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'ru',
+        dir: 'ltr' // направление текста (ltr - слева направо)
+      },
       title: 'Kelnik-test',
       titleTemplate: '%s | Flats',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      link: [],
-      lang: 'ru' 
-    }
-  },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Описание вашего сайта' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+    }, 
+  }, 
   
   experimental: {
-    payloadExtraction: false // Отключает автоматическое извлечение payload
+    payloadExtraction: false
   },
   
   render: {
-    resourceHints: false // Полностью отключает prefetch/preload подсказки
+    resourceHints: false
   },
 
   css: [
@@ -61,7 +71,8 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@vueform/slider']
   },
-    components: [
+  
+  components: [
     {
       path: '~/components',
       pathPrefix: false,
